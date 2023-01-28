@@ -7,83 +7,83 @@ import java.util.Scanner;
 
 
 public class BookManager {
-	//»ç¼­ ¾ÆÀÌµğ¿Í ºñ¹ø ¼³Á¤
-	static final String[] ID = { "±èÁöÈñ", "¹ÚÁ¤Àº", "ÀÌ¼öÁö" };
+	//ì‚¬ì„œ ì•„ì´ë””ì™€ ë¹„ë²ˆ ì„¤ì •
+	static final String[] ID = { "ê¹€ì§€í¬", "ë°•ì •ì€", "ì´ìˆ˜ì§€" };
 	static final String[] PASSWORD = { "0104", "0113", "2222" };
 	
 	LocalDate now; 
 	Scanner sc = new Scanner(System.in);
 	
-	//¸®½ºÆ® »ı¼º
+	//ë¦¬ìŠ¤íŠ¸ ìƒì„±
 	ArrayList <Book> list = new ArrayList<>();
 	
 
 
 	
-	//ÇÁ·Î±×·¥ ½ÇÇà
+	//í”„ë¡œê·¸ë¨ ì‹¤í–‰
 	public void run(int managerIndex) {
 		boolean bookRun = true;
-		System.out.println("·Î±×ÀÎ ¼º°ø");
-		System.out.println(ID[managerIndex] + " »ç¼­´Ô È¯¿µÇÕ´Ï´Ù!");
+		System.out.println("ë¡œê·¸ì¸ ì„±ê³µ");
+		System.out.println(ID[managerIndex] + " ì‚¬ì„œë‹˜ í™˜ì˜í•©ë‹ˆë‹¤!");
 		
-		list.add(new Book("º½º½", "±èÀ¯Á¤", "¹Ù.1.11", 1, "´ëÃâÁß / ¼Õ¼®±¸ ¹İ³³ 1¿ù 25ÀÏ", 18));
-		list.add(new Book("º½º½", "±èÀ¯Á¤", "¹Ù.1.12", 1, "´ëÃâÁß / ÀÌ³ª¿¬ ¹İ³³ 1¿ù 27ÀÏ ", 20));
-		list.add(new Book("·¯ºê´ÙÀÌºê", "¾ÆÀÌºê", "¶ó.0.10", 11, "´ëÃâÁß / Àå¿ø¿µ ¹İ³³ 2¿ù 3ÀÏ", 27));
-		list.add(new Book("ÇÏÀÔº¸ÀÌ", "´ºÁø½º", "ÇÏ.1.13", 21, "´ëÃâ°¡´É"));
+		list.add(new Book("ë´„ë´„", "ê¹€ìœ ì •", "ë°”.1.11", 1, "ëŒ€ì¶œì¤‘ / ì†ì„êµ¬ ë°˜ë‚© 1ì›” 25ì¼", 18));
+		list.add(new Book("ë´„ë´„", "ê¹€ìœ ì •", "ë°”.1.12", 1, "ëŒ€ì¶œì¤‘ / ì´ë‚˜ì—° ë°˜ë‚© 1ì›” 27ì¼ ", 20));
+		list.add(new Book("ëŸ¬ë¸Œë‹¤ì´ë¸Œ", "ì•„ì´ë¸Œ", "ë¼.0.10", 11, "ëŒ€ì¶œì¤‘ / ì¥ì›ì˜ ë°˜ë‚© 2ì›” 3ì¼", 27));
+		list.add(new Book("í•˜ì…ë³´ì´", "ë‰´ì§„ìŠ¤", "í•˜.1.13", 21, "ëŒ€ì¶œê°€ëŠ¥"));
 		
-		now = LocalDate.now(); //¿À´Ã ³¯Â¥¸¦ Ãâ·ÂÇÔ
+		now = LocalDate.now(); //ì˜¤ëŠ˜ ë‚ ì§œë¥¼ ì¶œë ¥í•¨
 		int month = now.getMonthValue();
 		int today = now.getDayOfMonth();
-		System.out.println("¿À´ÃÀº " + month + "¿ù " + today + "ÀÏ µ¶¼­ ÄûÁî ´ëÈ¸°¡ ÀÖ´Â ³¯ÀÔ´Ï´Ù."); //ÀÓÀÇ·Î Çà»ç ÁöÁ¤
+		System.out.println("ì˜¤ëŠ˜ì€ " + month + "ì›” " + today + "ì¼ ë…ì„œ í€´ì¦ˆ ëŒ€íšŒê°€ ìˆëŠ” ë‚ ì…ë‹ˆë‹¤."); //ì„ì˜ë¡œ í–‰ì‚¬ ì§€ì •
 		
 		int borrowCnt = 0;
 		for (int i = 0; i < list.size(); i++) {
 			Book t = list.get(i);
 			String state = t.state;
-			if (!(state.equals("´ëÃâ°¡´É"))) {
+			if (!(state.equals("ëŒ€ì¶œê°€ëŠ¥"))) {
 				borrowCnt++;
 			}
 		}
-		System.out.println("¿À´ÃÀÇ ¹Ì³³µµ¼­´Â ÃÑ " + borrowCnt + "±Ç ÀÔ´Ï´Ù."); 
+		System.out.println("ì˜¤ëŠ˜ì˜ ë¯¸ë‚©ë„ì„œëŠ” ì´ " + borrowCnt + "ê¶Œ ì…ë‹ˆë‹¤."); 
 		
 		
 		
 		
 		while(bookRun) {
 			System.out.println("-----------------------------------------");
-			System.out.println("1. °Ë»ö | 2. ½Å±Ôµµ¼­Ãß°¡ | 3. È¸¿ø°ü¸® | 4. ¹Ì³³µµ¼­È®ÀÎ");
-			System.out.println("5. ÁÖ°£ÀÎ±âµµ¼­ | 6. Çà»ç°ü¸® | 7. Á¾·á ");
+			System.out.println("1. ê²€ìƒ‰ | 2. ì‹ ê·œë„ì„œì¶”ê°€ | 3. íšŒì›ê´€ë¦¬ | 4. ë¯¸ë‚©ë„ì„œí™•ì¸");
+			System.out.println("5. ì£¼ê°„ì¸ê¸°ë„ì„œ | 6. í–‰ì‚¬ê´€ë¦¬ | 7. ì¢…ë£Œ ");
 			System.out.println("-----------------------------------------");
-			System.out.print("¸Ş´º ¼±ÅÃ > ");
+			System.out.print("ë©”ë‰´ ì„ íƒ > ");
 			String menu = sc.nextLine();
 			
 			
 			
 			switch(menu) { 
-				case "1": //Ã¥°Ë»ö
+				case "1": //ì±…ê²€ìƒ‰
 					findBook(null);
 					break;	
-				case "2": //Ã¥Ãß°¡
+				case "2": //ì±…ì¶”ê°€
 					add(); 
 					break;
-				case "3": //È¸¿ø°ü¸®
+				case "3": //íšŒì›ê´€ë¦¬
 					memberList();
 					break;
-				case "4": //¹Ì³³µµ¼­ È®ÀÎ
+				case "4": //ë¯¸ë‚©ë„ì„œ í™•ì¸
 					outBookList();
 					break;
-				case "5": //ÁÖ°£ ÀÎ±âµµ¼­
+				case "5": //ì£¼ê°„ ì¸ê¸°ë„ì„œ
 					popularBook();
 					break;
-				case "6": //Çà»ç°ü¸®
+				case "6": //í–‰ì‚¬ê´€ë¦¬
 					bookEvent();
 					break;
-				case "7": //Á¾·á
-					System.out.println("ÇÁ·Î±×·¥ Á¾·á");
+				case "7": //ì¢…ë£Œ
+					System.out.println("í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
 					bookRun = false;
 					break;
 				default : 
-					System.out.println("µî·ÏµÈ ¸Ş´º°¡ ¾Æ´Õ´Ï´Ù.");
+					System.out.println("ë“±ë¡ëœ ë©”ë‰´ê°€ ì•„ë‹™ë‹ˆë‹¤.");
 			}
 			
 		}
@@ -91,26 +91,26 @@ public class BookManager {
 	} //run method
 	
 
-	//1¹ø °Ë»ö
+	//1ë²ˆ ê²€ìƒ‰
 	public void findBook(String name) {
 		
 		do {
 		sc = new Scanner(System.in);
-		System.out.print("Ã¥ ÀÌ¸§ ÀÔ·Â >");
-		String bookName = sc.nextLine();
+		System.out.print("ì±… ì´ë¦„ ì…ë ¥ >");
+		String search = sc.nextLine();
 		
-		for (int i = 0; i < list.size(); i++) { //list.size = ¹è¿­ÀÇ µ¥ÀÌÅÍ ¼ö
-			Book bookList = list.get(i); //µé¾î¿À´Â i°ªÀ» Åä´ë·Î i¹øÂ°ÀÇ ¿ä¼Ò¸¦ bookList¿¡ ´ëÀÔ
-			String search = bookList.getName(); //ÀÔ·Â¹ŞÀº ÀÌ¸§À» search¿¡ ´ëÀÔ
+		for (int i = 0; i < list.size(); i++) { //list.size = ë°°ì—´ì˜ ë°ì´í„° ìˆ˜
+			Book bookList = list.get(i); //ë“¤ì–´ì˜¤ëŠ” iê°’ì„ í† ëŒ€ë¡œ ië²ˆì§¸ì˜ ìš”ì†Œë¥¼ bookListì— ëŒ€ì…
+			String bookName = bookList.getName(); //ì…ë ¥ë°›ì€ ì´ë¦„ì„ searchì— ëŒ€ì…
 			
-			if (bookName.equals(search)) { //ÀÔ·Â¹ŞÀº Ã¥ÀÌ¸§°ú ¸®½ºÆ®¿¡ ÀÖ´Â Ã¥ÀÌ¸§ ºñ±³ 
+			if (search.equals(bookName)) { //ì…ë ¥ë°›ì€ ì±…ì´ë¦„ê³¼ ë¦¬ìŠ¤íŠ¸ì— ìˆëŠ” ì±…ì´ë¦„ ë¹„êµ 
 				bookList.print();
 				break;
-			} else if(i==list.size()-1)  { //À½¼ö´Â ÂüÁ¶°¡ ¾ÈµÇ¹Ç·Î ¹İÈ¯ÇÒ µµ¼­°¡ ¾øÀ½
-				System.out.println("ÇØ´çÇÏ´Â µµ¼­°¡ ¾ø½À´Ï´Ù.");
+			} else if(i==list.size()-1)  { //ìŒìˆ˜ëŠ” ì°¸ì¡°ê°€ ì•ˆë˜ë¯€ë¡œ ë°˜í™˜í•  ë„ì„œê°€ ì—†ìŒ
+				System.out.println("í•´ë‹¹í•˜ëŠ” ë„ì„œê°€ ì—†ìŠµë‹ˆë‹¤.");
 			}
 		}
-		System.out.println("Ãß°¡ °Ë»ö ÇÏ½Ã°Ú½À´Ï±î? (Y/N)");
+		System.out.println("ì¶”ê°€ ê²€ìƒ‰ í•˜ì‹œê² ìŠµë‹ˆê¹Œ? (Y/N)");
 		String input = sc.nextLine().toUpperCase();
 		if (input.equals("Y")) continue;
 		if (input.equals("N"))break;
@@ -121,20 +121,20 @@ public class BookManager {
 	
 	
 
-	//2¹ø Ãß°¡
+	//2ë²ˆ ì¶”ê°€
 	public void add() {
 		do {
-		System.out.print("Ã¥ Á¦¸ñ > ");
+		System.out.print("ì±… ì œëª© > ");
 		String name = sc.nextLine();
-		System.out.print("ÀÛ°¡ > ");
+		System.out.print("ì‘ê°€ > ");
 		String author = sc.nextLine();
-		System.out.print("À§Ä¡ > ");
+		System.out.print("ìœ„ì¹˜ > ");
 		String position = sc.nextLine();
-		Book book = new Book(name, author, position, 0, "´ëÃâ°¡´É");
+		Book book = new Book(name, author, position, 0, "ëŒ€ì¶œê°€ëŠ¥");
 		
 		list.add(book); 
-		System.out.println("½Å°£µµ¼­ '" + name + "[" + author + "]" + " / " + position + "' Ãß°¡µÇ¾ú½À´Ï´Ù.");
-		System.out.println("°è¼Ó Ãß°¡ ÇÏ½Ã°Ú½À´Ï±î? (Y/N)");
+		System.out.println("ì‹ ê°„ë„ì„œ '" + name + "[" + author + "]" + " / " + position + "' ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤.");
+		System.out.println("ê³„ì† ì¶”ê°€ í•˜ì‹œê² ìŠµë‹ˆê¹Œ? (Y/N)");
 		String input = sc.nextLine().toUpperCase();
 		if (input.equals("Y")) continue;
 		if (input.equals("N"))break;
@@ -145,34 +145,34 @@ public class BookManager {
 	
 	
 	
-	//3¹ø È¸¿ø °ü¸®
+	//3ë²ˆ íšŒì› ê´€ë¦¬
 	public void memberList() {
 		ArrayList<Member> members = new ArrayList<Member>();
-		members.add(new Member("¼Õ¼®±¸", 1));
-		members.add(new Member("Àå¿ø¿µ", 0));
-		members.add(new Member("¹Ú¿¬Áø", 5));
-		members.add(new Member("¹®µ¿Àº", 0));
-		members.add(new Member("ÁÖ¿©Á¤",3));
-		members.add(new Member("ÀÌ³ª¿¬",0));
-		members.add(new Member("Àåµµ¿¬",5));
+		members.add(new Member("ì†ì„êµ¬", 1));
+		members.add(new Member("ì¥ì›ì˜", 0));
+		members.add(new Member("ë°•ì—°ì§„", 5));
+		members.add(new Member("ë¬¸ë™ì€", 0));
+		members.add(new Member("ì£¼ì—¬ì •",3));
+		members.add(new Member("ì´ë‚˜ì—°",0));
+		members.add(new Member("ì¥ë„ì—°",5));
 		
 		for (int i=0; i<members.size(); i++) {
-			System.out.println(members.get(i).getName() + " È¸¿ø / ¹Ì³³È½¼ö :  " +members.get(i).getLateCnt());
+			System.out.println(members.get(i).getName() + " íšŒì› / ë¯¸ë‚©íšŸìˆ˜ :  " +members.get(i).getLateCnt());
 			if (members.get(i).getLateCnt() >= 5) {
-				System.out.print(" >> ´ëÃâºÒ°¡´É\n");
+				System.out.print(" >> ëŒ€ì¶œë¶ˆê°€ëŠ¥\n");
 			}
 		}		
 	}
 	
 	
-	//4¹ø ¹Ì³³µµ¼­ È®ÀÎ
+	//4ë²ˆ ë¯¸ë‚©ë„ì„œ í™•ì¸
 	public void outBookList() {
-		System.out.println("¹Ì³³ µµ¼­ ¸ñ·Ï");
+		System.out.println("ë¯¸ë‚© ë„ì„œ ëª©ë¡");
 		
 		for(int i  = 0; i < list.size(); i++) {
 			Book outBook = list.get(i);
 			String out = outBook.getState();
-			if(!(out.contains("´ëÃâ°¡´É"))) {
+			if(!(out.contains("ëŒ€ì¶œê°€ëŠ¥"))) {
 				System.out.println(out);
 			}
 		}
@@ -180,10 +180,10 @@ public class BookManager {
 	}
 	
 	
-	//5¹ø ÁÖ°£ ÀÎ±âµµ¼­
+	//5ë²ˆ ì£¼ê°„ ì¸ê¸°ë„ì„œ
 	public void popularBook() {
-		list.sort(new Comparator<Book>() { //Á¤·ÄÇÑ ¸®½ºÆ®·Î °´Ã¼ »ı¼º
-				//³»¸²Â÷¼ø Á¤·Ä (https://manorgass.tistory.com/60)
+		list.sort(new Comparator<Book>() { //ì •ë ¬í•œ ë¦¬ìŠ¤íŠ¸ë¡œ ê°ì²´ ìƒì„±
+				//ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬ (https://manorgass.tistory.com/60)
 				public int compare(Book book1, Book book2) {
 					int cnt1 = book1.getCnt();
 					int cnt2 = book2.getCnt();
@@ -196,12 +196,12 @@ public class BookManager {
 				}
 			});
 			
-			String previousName = " "; //ÀÌÀü °ªÀ» ºñ±³ÇÒ º¯¼ö¸¦ ¼±¾ğ
-			System.out.println("ÀÎ±â µµ¼­ ¸ñ·Ï");
+			String previousName = " "; //ì´ì „ ê°’ì„ ë¹„êµí•  ë³€ìˆ˜ë¥¼ ì„ ì–¸
+			System.out.println("ì¸ê¸° ë„ì„œ ëª©ë¡");
 			for (int i=0; i<list.size(); i++) {
 				Book a = list.get(i);
 				
-				if (a.getName() != previousName) //Áßº¹ Á¦°Å, ¸¶Áö¸· Ãâ·Â°ª°ú i¹øÂ° °ªÀÌ °°Áö ¾ÊÀ¸¸é(=´Ù¸£¸é) Ãâ·Â
+				if (a.getName() != previousName) //ì¤‘ë³µ ì œê±°, ë§ˆì§€ë§‰ ì¶œë ¥ê°’ê³¼ ië²ˆì§¸ ê°’ì´ ê°™ì§€ ì•Šìœ¼ë©´(=ë‹¤ë¥´ë©´) ì¶œë ¥
 					System.out.println(a.getName());
 				
 				previousName = a.getName();
@@ -210,24 +210,24 @@ public class BookManager {
 	}
 	
 	
-	//6¹ø Çà»ç Ãß°¡ ¹× °ü¸®
+	//6ë²ˆ í–‰ì‚¬ ì¶”ê°€ ë° ê´€ë¦¬
 	public void bookEvent() {
 		do {
-			System.out.print("³¯Â¥(¿ù)>");
+			System.out.print("ë‚ ì§œ(ì›”)>");
 			String month1 = sc.nextLine();
-			System.out.print("³¯Â¥(ÀÏ)>");
+			System.out.print("ë‚ ì§œ(ì¼)>");
 			int inputDay = Integer.parseInt(sc.nextLine());
-			System.out.print("Çà»çÀÌ¸§>");
+			System.out.print("í–‰ì‚¬ì´ë¦„>");
 			String eventName = sc.nextLine();
 
-			System.out.println(month1 + "¿ù " + inputDay + "ÀÏ ¿¡ " + eventName + "¸¦(À») Ãß°¡ÇÒ±î¿ä?(Y/N)");
+			System.out.println(month1 + "ì›” " + inputDay + "ì¼ ì— " + eventName + "ë¥¼(ì„) ì¶”ê°€í• ê¹Œìš”?(Y/N)");
 			String input = sc.nextLine().toUpperCase();
 			;
 			if (input.equals("Y")) {
-				System.out.println(month1 + "¿ù " + inputDay + "ÀÏ ¿¡ " + eventName + "¸¦(À») ¾Ë·Áµå¸®°Ú½À´Ï´Ù.");
+				System.out.println(month1 + "ì›” " + inputDay + "ì¼ ì— " + eventName + "ë¥¼(ì„) ì•Œë ¤ë“œë¦¬ê² ìŠµë‹ˆë‹¤.");
 			}
 			
-			System.out.println("Ãß°¡ ÀÔ·Â ÇÏ½Ã°Ú½À´Ï±î? (Y/N)");
+			System.out.println("ì¶”ê°€ ì…ë ¥ í•˜ì‹œê² ìŠµë‹ˆê¹Œ? (Y/N)");
 			input = sc.nextLine().toUpperCase();
 			if (input.equals("N")) { 
 				break;
@@ -237,27 +237,27 @@ public class BookManager {
 		
 	}
 	
-	//»ç¼­ ·Î±×ÀÎ ¸Ş¼Òµå
+	//ì‚¬ì„œ ë¡œê·¸ì¸ ë©”ì†Œë“œ
 	public int memberLogin(){ 
 		int i;
 		Scanner sc = new Scanner(System.in);
-		//¾ÆÀÌµğ¿Í ºñ¹ø ÀÔ·Â
-		System.out.print("»ç¼­ID > ");
+		//ì•„ì´ë””ì™€ ë¹„ë²ˆ ì…ë ¥
+		System.out.print("ì‚¬ì„œID > ");
 		String id = sc.nextLine();
-		System.out.print("ÆĞ½º¿öµå > ");
+		System.out.print("íŒ¨ìŠ¤ì›Œë“œ > ");
 		String pwd = sc.nextLine();
 
 		int index = -1;
-		for (i = 0; i < ID.length; i++) { // ¸ÂÀ¸¸é ÇØ´ç ÀÎµ¦½º¸¦ ¸®ÅÏ, 0:±èÁöÈñ, 1:¹ÚÁ¤Àº, 2:ÀÌ¼öÁö
+		for (i = 0; i < ID.length; i++) { // ë§ìœ¼ë©´ í•´ë‹¹ ì¸ë±ìŠ¤ë¥¼ ë¦¬í„´, 0:ê¹€ì§€í¬, 1:ë°•ì •ì€, 2:ì´ìˆ˜ì§€
 			if (id.equals(ID[i])) {
 				index = i;
 			}
 		}
 		if (index < 0)
-			return -1; // ¾ÆÀÌµğ°¡ Æ²¸®¸é -1 ¸®ÅÏ
-		if (pwd.equals(PASSWORD[index])) // ¾ÆÀÌµğ¿¡ ÇØ´çÇÏ´Â ÀÎµ¦½º¸¦ ºñ¹Ğ¹øÈ£ ÀÎµ¦½º¶û ´ëÁ¶ÇÏ¿© ¸ÂÀ¸¸é ÇØ´ç ÀÎµ¦½º ¸®ÅÏ
+			return -1; // ì•„ì´ë””ê°€ í‹€ë¦¬ë©´ -1 ë¦¬í„´
+		if (pwd.equals(PASSWORD[index])) // ì•„ì´ë””ì— í•´ë‹¹í•˜ëŠ” ì¸ë±ìŠ¤ë¥¼ ë¹„ë°€ë²ˆí˜¸ ì¸ë±ìŠ¤ë‘ ëŒ€ì¡°í•˜ì—¬ ë§ìœ¼ë©´ í•´ë‹¹ ì¸ë±ìŠ¤ ë¦¬í„´
 			return index;
-		return -2; // ¾ÆÀÌµğ¿¡ ÇØ´çÇÏ´Â ÀÎµ¦½º¶û ºñ±³ÇØ¼­ ºñ¹Ğ¹øÈ£°¡ Æ²¸®¸é -2 ¸®ÅÏ
+		return -2; // ì•„ì´ë””ì— í•´ë‹¹í•˜ëŠ” ì¸ë±ìŠ¤ë‘ ë¹„êµí•´ì„œ ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë¦¬ë©´ -2 ë¦¬í„´
 	}
 
 
